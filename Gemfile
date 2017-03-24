@@ -2,6 +2,7 @@ source 'https://rubygems.org'
  
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
  gem 'rails', '4.2.7'
+ gem 'devise'
  
  group :production do
    gem 'pg'
@@ -10,6 +11,7 @@ source 'https://rubygems.org'
  
  group :development do
    gem 'sqlite3'
+
  end
  
  gem 'sass-rails', '~> 5.0'
