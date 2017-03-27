@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  after_action :role_to_premium, only: :create
 
   def create
     # Creates a Stripe Customer object, for associating
@@ -19,7 +20,8 @@ class ChargesController < ApplicationController
     )
 
     flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
-    redirect_to user_path(current_user) # or wherever
+    redirect_to  wikis_path
+    # return
 
       # Stripe will send back CardErrors, with friendly messages
       # when something goes wrong.
@@ -38,5 +40,11 @@ class ChargesController < ApplicationController
   end
 end
 
+private
 
+def role_to_premium
+
+  current_user.premium!
+
+end
 
