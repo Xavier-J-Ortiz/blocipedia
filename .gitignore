@@ -18,3 +18,8 @@
 
 .idea
 blocipedia.iml
+
+config/locales/application.yml
+
+# Ignore application configuration
+/config/application.yml

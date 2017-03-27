@@ -4,6 +4,8 @@ source 'https://rubygems.org'
  gem 'rails', '4.2.7'
  gem 'devise'
  gem 'pundit'
+ gem 'faker'
+ gem 'stripe'
  
  group :production do
    gem 'pg'
@@ -29,7 +31,6 @@ source 'https://rubygems.org'
    gem 'spring'
    gem 'rspec-rails'
    gem 'shoulda'
-   gem 'faker'
    gem 'factory_girl_rails'
    gem 'pry-rails'
  end
