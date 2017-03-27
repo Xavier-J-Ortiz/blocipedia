@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
 
     flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
     redirect_to  wikis_path
-    # return
+      # return
 
       # Stripe will send back CardErrors, with friendly messages
       # when something goes wrong.
@@ -39,11 +39,21 @@ class ChargesController < ApplicationController
     }
   end
 
+  def downgrade
+    set_to_standard
+    redirect_to wikis_path
+  end
+
 end
 
 private
 
 def role_to_premium
   current_user.premium!
+end
+
+def set_to_standard
+  current_user.standard!
+  # redirect_to wikis_path
 end
 

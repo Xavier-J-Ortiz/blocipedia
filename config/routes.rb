@@ -5,11 +5,9 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   root 'welcome#index'
 
-  resources :charges, only: [:new, :create]
-
-  resources :resources do
+  resources :charges, only: [:new, :create] do
     collection do
-      get :set_to_standard
+      get :downgrade
     end
   end
 
