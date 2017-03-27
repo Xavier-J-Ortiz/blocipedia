@@ -38,13 +38,12 @@ class ChargesController < ApplicationController
         amount: @amount
     }
   end
+
 end
 
 private
 
 def role_to_premium
-
   current_user.premium!
-
 end
 
