@@ -40,6 +40,7 @@ class ChargesController < ApplicationController
   end
 
   def downgrade
+    current_user.wikis.where(private: true).each { |wiki| wiki.update_attribute(:private, false) }
     set_to_standard
     redirect_to wikis_path
   end
