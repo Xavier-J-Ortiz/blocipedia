@@ -7,7 +7,7 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @wiki.body %>
+  <%= markdown(@wiki.body) %>
 </p>
 
 <p>
@@ -18,7 +18,7 @@
 <p>
   <strong>User:</strong>
   <!--<%= @wiki.user %>-->
-  <%= @wiki.user.name %>
+  <%= @wiki.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_wiki_path(@wiki) %> |
