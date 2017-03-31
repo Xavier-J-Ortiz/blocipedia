@@ -6,6 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+def cointoss
+  flip = Random.rand(2)
+  if flip == 0
+    return true
+  else
+    return false
+  end
+end
 
 5.times do
   User.create!(
@@ -22,7 +30,7 @@ users = User.all
       title: Faker::Hipster.sentence(3),
       body: Faker::Hipster.paragraphs(3).join(' '),
       user_id: users.sample.id,
-      private: false
+      private: cointoss
 
   )
 end
