@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @collaborator.user %>
+  <%= @collaborator.user.email %>
 </p>
 
 <p>
   <strong>Wiki:</strong>
-  <%= @collaborator.wiki %>
+  <%= @collaborator.wiki.title %>
 </p>
 
 <%= link_to 'Edit', edit_collaborator_path(@collaborator) %> |

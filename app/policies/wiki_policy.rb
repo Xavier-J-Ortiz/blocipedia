@@ -14,7 +14,8 @@ class WikiPolicy < ApplicationPolicy
       elsif user.role == 'premium'
         all_wikis = scope.all
         all_wikis.each do |wiki|
-          if !wiki.private? || wiki.user_id == user.id || wiki.collaborators.include?(user)
+          #last logical evaluator here is the one that worked best. The default one provided via Bloc was not working properly.
+          if !wiki.private? || wiki.user_id == user.id || wiki.collaborators.where('user_id = ' + user.id.to_s) != []
             wikis << wiki # if the user is premium, only show them public wikis, or that private wikis they created, or private wikis they are a collaborator on
           end
         end
@@ -22,7 +23,7 @@ class WikiPolicy < ApplicationPolicy
         all_wikis = scope.all
         wikis = []
         all_wikis.each do |wiki|
-          if !wiki.private? || wiki.collaborators.include?(user)
+          if !wiki.private? || wiki.collaborators.where('user_id = ' + user.id.to_s) != []
             wikis << wiki # only show standard users public wikis and private wikis they are a collaborator on
           end
         end
