@@ -22,9 +22,11 @@
     <% if current_user.premium? || current_user.admin?%>
         <div class="field">
           <%= f.label :private %><br>
-          <%= f.check_box :private %>
+          <%= f.check_box :private %><br>
+          <%= link_to "Add a collaborator?" , new_collaborator_path , method: :get%>
         </div>
     <% end %>
+
     <div class="actions">
       <%= f.submit %>
     </div>

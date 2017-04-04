@@ -2,8 +2,9 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   # GET /wikis
+
   def index
-    @wikis = Wiki.all
+    @wikis = policy_scope(Wiki)
   end
 
   # GET /wikis/1

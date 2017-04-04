@@ -1,2 +1,7 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to the Blocipedia welcome page!</h1>
+<% if current_user.premium? || current_user.admin? %>
+    <%= link_to "View all Wikis" , wikis_path , method: :get%><br>
+    <%= link_to "View all Collaborators" , collaborators_path , method: :get%><br>
+    <%= link_to "Downgrade to Standard?", new_charge_path, method: :get  %>
+<%else  %>
+<%end%>
