@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
  
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
- gem 'rails', '4.2.7'
+ gem 'rails'
  gem 'devise'
  gem 'pundit'
  gem 'faker'
@@ -35,3 +35,5 @@ source 'https://rubygems.org'
    gem 'factory_girl_rails'
    gem 'pry-rails'
  end
+
+ gem 'json'
